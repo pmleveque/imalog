@@ -33,5 +33,5 @@ node_modules
 # My additions
 # ============
 
-shots/.*
+shots/*
 
