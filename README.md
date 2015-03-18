@@ -8,9 +8,9 @@ Nodejs
 Jade
 
 ## How-To
-start app: `coffee index.coffee`
-take a screen shot: `Cmd + Shift + 4`
-open [127.0.0.1:1337](127.0.0.1:1337)
+- start app: `coffee index.coffee`
+- take a screen shot: `Cmd + Shift + 4`
+- open [127.0.0.1:1337](http://127.0.0.1:1337/)
 
 ## TODO
 - improve display page (organize chronologically)
