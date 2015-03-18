@@ -1,23 +1,14 @@
 doctype
-<!--[if IE 8]><html class="lt-ie9 no-js"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
 head
-  //- TODO: Check if it's the good charset
   meta(charset='utf-8')
-  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(http-equiv='X-UA-Compatible')
   title ImaLog
   meta(name='description', content='The simpliest way to keep track of relevant information via screen shots')
   meta(name='viewport', content='width=device-width,initial-scale=1')
   //- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
   link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
   link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css")
-  // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
-  <!--[if lt IE 9]>
-  script(src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.0/html5shiv.js")
-  script(src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js")
-  <![endif]-->
 body
-  //- Add your site or application content here
   .container
     h1 ImaLog
 
@@ -26,6 +17,7 @@ body
         a(data-toggle='modal', href='#modal-' + path.replace(/\D+/g,"")).thumbnail
           img(src="/shots/" + path, alt="").img-responsive
 
+  // @todo reate a JS template for this modal window, to avoid repeating
   each path in imgUrls
     div(id="modal-" + path.replace(/\D+/g,"")).modal.fade
       .modal-dialog
