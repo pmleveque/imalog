@@ -22,17 +22,21 @@ fs.readdir path.join(homepath, "Desktop/"), (err, list) ->
       fs.rename oldpath, newpath, (err) ->
         return console.log err
 
+# Fetching list of screen shot images
+imgFetch = () ->
+  urls = fs.readdirSync path.join(thispath, "shots/")
+  urls.filter (url) -> url.match /png$/
+
 # creating http server to render index of images
 # ATTENTION: should run after all images have been processed! (sync)
 server = http.createServer (req, res) ->
-  console.log req, req.url
   if req.url.match /^\/shots\//
     res.writeHead 200, {"Content-Type": "image/png"}
     res.end fs.readFileSync path.join thispath, req.url
   else if req.url == "/"
     res.writeHead 200, {"Content-Type": "text/html"}
     # @todo jade template
-    res.end jade.renderFile "templates/index.jade"
+    res.end jade.renderFile "templates/index.jade", {"imgUrls": imgFetch()}
   else
     res.writeHead 404
     res.end "not found"
