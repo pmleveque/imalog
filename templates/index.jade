@@ -5,12 +5,12 @@ head
   //- TODO: Check if it's the good charset
   meta(charset='utf-8')
   meta(http-equiv='X-UA-Compatible', content='IE=edge')
-  title
-  meta(name='description', content='')
+  title ImaLog
+  meta(name='description', content='The simpliest way to keep track of relevant information via screen shots')
   meta(name='viewport', content='width=device-width,initial-scale=1')
   //- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
   link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
-  //link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css")
+  link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css")
   // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
   <!--[if lt IE 9]>
   script(src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.0/html5shiv.js")
@@ -19,8 +19,11 @@ head
 body
   //- Add your site or application content here
   .container
-    h1 Hello word!
+    h1 ImaLog
 
+    - var paths = ["shots/2015-03-17shot1426653768530.png"]
+    each path in paths
+      img(src=path, alt="")
   script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
   script(src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js")
   script(src="//cdnjs.cloudflare.com/ajax/libs/holder/2.3.0/holder.js")
