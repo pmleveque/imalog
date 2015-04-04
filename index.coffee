@@ -31,10 +31,13 @@ moveScreenshots = (callback) ->
 
 # creating http server to render index of images
 server = http.createServer (req, res) ->
+
+  # static files: those whose url contains "shots"
   if req.url.match /^\/shots\//
     res.writeHead 200, {"Content-Type": "image/png"}
     res.end fs.readFileSync path.join thispath, req.url
 
+  # root url: execute script (moveScreenshots) and render jade template
   else if req.url == "/"
     res.writeHead 200, {"Content-Type": "text/html"}
     moveScreenshots (err, imgUrls) ->
@@ -43,10 +46,12 @@ server = http.createServer (req, res) ->
 
       res.end jade.renderFile "templates/index.jade", {"imgUrls": imgUrls}
 
+  # other URL: 404 response
   else
     res.writeHead 404
     res.end "not found"
 
+# starting server
 server.listen 1337, "127.0.0.1"
 console.log "server running at 127.0.0.1:1337"
 
